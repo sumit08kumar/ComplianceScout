@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: compliancescout-api
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DB_NAME
+        value: tinyfish_db
+      - key: TINYFISH_API_KEY
+        sync: false
+      - key: TINYFISH_API_BASE
+        value: https://api.tinyfish.example
+      - key: FRONTEND_URL
+        sync: false
+      - key: NODE_ENV
+        value: production
